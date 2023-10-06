@@ -20,7 +20,8 @@ function countCards(cards) {
     }
     if (count > 0) {
         message = 'Bet';
-    } else {
+    } 
+    else {
         message = 'Hold';
     }
     return `${count} ${message}`
