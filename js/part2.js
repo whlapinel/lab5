@@ -115,25 +115,29 @@ function getAlbumWithTrack(track) {
  * @param {*} value - new value for the property
  */
 function updateAlbum(id, prop, value) {
-  const albumToUpdate = albumCollection.find((album) => album.id);
-  console.log(prop);
-  console.log(albumToUpdate)
+  const albumToUpdate = albumCollection.find((album) => album.id === id);
   if (prop != 'tracks' && value != '') {
-    albumToUpdate.prop = value;
-    console.log(`property to update: ${albumToUpdate} with ${albumToUpdate.prop}`);
+    console.log(prop);
+    console.log(albumToUpdate[prop] = value);
     console.log('condition met');
     console.log(albumToUpdate);
   } else if (prop === 'tracks' && !albumToUpdate.hasOwnProperty('tracks')) {
     albumToUpdate.tracks = [];
-    albumToUpdate.tracks.push(prop);
+    albumToUpdate.tracks.push(value);
+  } else if (prop === 'tracks' && value !== '') {
+    albumToUpdate.tracks.push(value);
+  }
+  if (value === '') {
+    delete albumToUpdate[prop];
   }
 }
 // uncomment following test code after implementing the function
+
 updateAlbum(3590, 'artist', 'Alice Cooper');
-// updateAlbum(3590, 'tracks', 'School\'s Out');
-// updateAlbum(2125, 'artist', '');
-// updateAlbum(1678, 'tracks', 'Bohemian Rhapsody');
-// updateAlbum(2975, 'tracks', 'Free');
-// updateAlbum(1257, 'tracks', '');
-// updateAlbum(3257, 'artist', 'David Bowie');
+updateAlbum(3590, 'tracks', 'School\'s Out');
+updateAlbum(2125, 'artist', '');
+updateAlbum(1678, 'tracks', 'Bohemian Rhapsody');
+updateAlbum(2975, 'tracks', 'Free');
+updateAlbum(1257, 'tracks', '');
+updateAlbum(3257, 'artist', 'David Bowie');
 console.log(albumCollection);
