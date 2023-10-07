@@ -43,6 +43,19 @@ const albumCollection = [
         title: 'Transformer',
         artist: 'Lou Reed',
         tracks: ['Vicious', 'Perfect Day', 'Walking on the Wild Side']
+    },
+    //Part 2 step 4: add 2 albums
+    {
+        id: 1066,
+        title: 'Stand Together',
+        artist: 'The Makem Brothers',
+        tracks: ['Stand Together', 'I\'ll Neither Spin Nor Weave'] 
+    },
+    {
+        id: 2009,
+        title: 'Walls and Windows',
+        artist: 'Maura O\'Connell',
+        tracks: ['Walls', 'Crazy Love']
     }
 
 ];
@@ -51,11 +64,13 @@ const albumCollection = [
  * Returns an array of titles of all the albums in albumCollection
  * @returns {array} - an array of titles of all the albums in albumCollection
  */
-function getAllTitles() {
+
+function getAllTitles(album) {
+    return albumCollection.map((album) => (album.title));
     
 }
 //uncomment following test code after implementing the function
-//console.log(getAllTitles());
+console.log(getAllTitles());
 
 
 /**
