@@ -118,15 +118,25 @@ console.log(getAlbumWithTrack('perfect day'));
  * @param {*} value - new value for the property
  */
 function updateAlbum(id, prop, value) {
+  // find() returns the first item in the array matching the criteria,
+  // in this case we are looking for the album whose id matches the
+  // argument 'id'. Store result in albumToUpdate
   const albumToUpdate = albumCollection.find((album) => album.id === id);
+  // if given property isn't tracks and given value isn't empty string, then
+  // just update the property with the given value.
   if (prop != 'tracks' && value != '') {
     albumToUpdate[prop] = value;
+    // If property is tracks, make sure album has property tracks,
+    // if not then add property with empty array and then push value.
   } else if (prop === 'tracks' && !albumToUpdate.hasOwnProperty('tracks')) {
     albumToUpdate.tracks = [];
     albumToUpdate.tracks.push(value);
+    // if property is tracks and value isn't empty string, push value
+    // (tracks property exists already if we're in this code block)
   } else if (prop === 'tracks' && value !== '') {
     albumToUpdate.tracks.push(value);
   }
+  // if value given is empty string, then delete the given property.
   if (value === '') {
     delete albumToUpdate[prop];
   }
