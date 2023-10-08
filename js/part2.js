@@ -61,14 +61,15 @@ const albumCollection = [
 
 /**
  * Returns an array of titles of all the albums in albumCollection
- * @returns {array} - an array of titles of all the albums in albumCollection
+ * @return {array} - an array of titles of all the albums in albumCollection
  */
 
 function getAllTitles() {
   return albumCollection.map((album) => album.title);
 }
 // uncomment following test code after implementing the function
-// console.log(getAllTitles());
+console.log('Part 2 Step 5: Implement getAllTitles()');
+console.log(getAllTitles());
 
 /**
  * Returns albums of the artist in albumCollection
@@ -79,9 +80,10 @@ function getAlbumsByArtist(artist) {
   return albumCollection.filter((album) => album.artist == artist);
 }
 // uncomment following test code after implementing the function
-// console.log(getAlbumsByArtist('Queen'));
-// console.log(getAlbumsByArtist('Guns N\' Roses'));
-// console.log(getAlbumsByArtist('ABBA'));
+console.log('Part 2 Step 6: Implement getAlbumsByArtist(artist)');
+console.log(getAlbumsByArtist('Queen'));
+console.log(getAlbumsByArtist('Guns N\' Roses'));
+console.log(getAlbumsByArtist('ABBA'));
 
 /**
  * Returns the ablum with the specified track
@@ -104,9 +106,10 @@ function getAlbumWithTrack(track) {
   }
 }
 // uncomment following test code after implementing the function
-// console.log(getAlbumWithTrack('Little Red Corvette'));
-// console.log(getAlbumWithTrack('November Rain'));
-// console.log(getAlbumWithTrack('perfect day'));
+console.log('Part 2 Step 7: Implement getAlbumWithTrack(track)');
+console.log(getAlbumWithTrack('Little Red Corvette'));
+console.log(getAlbumWithTrack('November Rain'));
+console.log(getAlbumWithTrack('perfect day'));
 
 /**
  * Updates the album with the specified id.
@@ -117,10 +120,7 @@ function getAlbumWithTrack(track) {
 function updateAlbum(id, prop, value) {
   const albumToUpdate = albumCollection.find((album) => album.id === id);
   if (prop != 'tracks' && value != '') {
-    console.log(prop);
-    console.log(albumToUpdate[prop] = value);
-    console.log('condition met');
-    console.log(albumToUpdate);
+    albumToUpdate[prop] = value;
   } else if (prop === 'tracks' && !albumToUpdate.hasOwnProperty('tracks')) {
     albumToUpdate.tracks = [];
     albumToUpdate.tracks.push(value);
@@ -132,7 +132,7 @@ function updateAlbum(id, prop, value) {
   }
 }
 // uncomment following test code after implementing the function
-
+console.log('Part 2 Step 8: Implement updateAlbum(id, prop, value)');
 updateAlbum(3590, 'artist', 'Alice Cooper');
 updateAlbum(3590, 'tracks', 'School\'s Out');
 updateAlbum(2125, 'artist', '');
