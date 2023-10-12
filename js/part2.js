@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 'use strict';
 
 const albumCollection = [
@@ -77,7 +78,7 @@ console.log(getAllTitles());
  * @return {array} an array of albums of the specified artist in albumCollection
  */
 function getAlbumsByArtist(artist) {
-  return albumCollection.filter((album) => album.artist == artist);
+  return albumCollection.filter((album) => album.artist === artist);
 }
 // uncomment following test code after implementing the function
 console.log('Part 2 Step 6: Implement getAlbumsByArtist(artist)');
@@ -93,7 +94,7 @@ console.log(getAlbumsByArtist('ABBA'));
 function getAlbumWithTrack(track) {
   let trackFound = false;
   albumCollection.forEach((album) => {
-    if (album.tracks != null) {
+    if (album.tracks !== undefined) {
       if (album.tracks.includes(track)) {
         trackFound = true;
       }
@@ -124,7 +125,7 @@ function updateAlbum(id, prop, value) {
   const albumToUpdate = albumCollection.find((album) => album.id === id);
   // if given property isn't tracks and given value isn't empty string, then
   // just update the property with the given value.
-  if (prop != 'tracks' && value != '') {
+  if (prop !== 'tracks' && value !== '') {
     albumToUpdate[prop] = value;
     // If property is tracks, make sure album has property tracks,
     // if not then add property with empty array and then push value.
